@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Playlist from './components/media/playlist';
+import data from '../src/api.json';
 
 class App extends Component {
   render() {
@@ -8,6 +10,7 @@ class App extends Component {
       <div>
         <div className="container App">
           <h1>Hola</h1>
+          <Playlist data ={data} />
         </div>
       </div>
     );
