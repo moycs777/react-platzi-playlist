@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import './media.css';
 
 class Media extends PureComponent {
-    state = {
-        author: 'Moises'
-    }
-    
     handleClick = (event) => {
         // console.log(this.props.image)
     }
@@ -22,14 +18,6 @@ class Media extends PureComponent {
         return (
             <div className="Media" >
                 <div className="Media-cover">
-                    {/* <img
-                        src={require(this.props.cover)} 
-                        
-                        alt=""
-                        width={260}
-                        height={160}
-                        className="Media-image"
-                    /> */}
                     <img
                         src={this.props.cover}
                         alt=""
