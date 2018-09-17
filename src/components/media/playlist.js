@@ -10,7 +10,7 @@ class Playlist extends React.Component {
             <div className="Playlist">
                 {
                     playlist.map( (item,i)=> {
-                        return <Media title={item.title}  />
+                        return <Media title={item.title} author={item.author} cover={item.cover} key={item.id} />
                     })
                 }
 
