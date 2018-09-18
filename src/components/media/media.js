@@ -7,16 +7,16 @@ class Media extends PureComponent {
         // console.log(this.props.image)
     }
     render() {
-        const styles = {
+        /* const styles = {
             container: {
                 color: '#44546b',
                 cursor: 'pointer',
                 width: 260,
                 border: '1px solid red'
             }
-        }
+        } */
         return (
-            <div className="Media" >
+            <div className="Media" onClick={this.props.handleClick} >
                 <div className="Media-cover">
                     <img
                         src={this.props.cover}

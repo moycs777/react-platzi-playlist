@@ -6,7 +6,7 @@ import './playlist.css';
 
 function Playlist(props) {
     
-    console.log("playlist component " + JSON.stringify(props));
+    //console.log("playlist component " + JSON.stringify(props));
     //const playlist = props.data.categories[0].playlist;
     return (
         <div className="Playlist">
@@ -16,7 +16,7 @@ function Playlist(props) {
             />
             {
                 props.playlist.map( (item,i)=> {
-                    return <Media title={item.title} author={item.author} cover={item.cover} key={item.id} />
+                    return <Media handleClick={props.handleOpenModal} title={item.title} author={item.author} cover={item.cover} key={item.id} />
                 })
             }
         </div>

@@ -7,6 +7,7 @@ function Related(props) {
         <div className="Related">
             <img 
                 src={logo} 
+                alt="Platzi-Video"
                 width={250}>
             </img>
         </div>
