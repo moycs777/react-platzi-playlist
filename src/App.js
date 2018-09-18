@@ -5,25 +5,17 @@ import Playlist from './components/media/playlist';
 import data from '../src/api.json';
 import HomeLayout from './home/home';
 import Categories from './categories/components/categories';
+import Related from './home/related';
 
 class App extends Component {
   render() {
-    //console.log("app js , data: " + JSON.stringify(data.categories));
     return (
       <HomeLayout>
+        <Related/>
         <Categories categories={data.categories} />        
       </HomeLayout>
-      
     );
   } 
 }
 
 export default App;
-/*
-  <div>
-        <div className="container App">
-          <h1>Hola</h1>
-          <Playlist data ={data} />
-        </div>
-      </div>
-*/
