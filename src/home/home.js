@@ -2,8 +2,7 @@ import React from 'react';
 
 function HomeLayout(props){
     return(
-        <section>
-            
+        <section>  
             {
                 props.children
             }

@@ -6,8 +6,8 @@ import './playlist.css';
 
 function Playlist(props) {
     
-    console.log(props.data);
-    const playlist = props.data.categories[0].playlist;
+    console.log("playlist component " + JSON.stringify(props));
+    //const playlist = props.data.categories[0].playlist;
     return (
         <div className="Playlist">
             <Play
@@ -15,7 +15,7 @@ function Playlist(props) {
                 color="red"
             />
             {
-                playlist.map( (item,i)=> {
+                props.playlist.map( (item,i)=> {
                     return <Media title={item.title} author={item.author} cover={item.cover} key={item.id} />
                 })
             }
