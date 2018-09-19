@@ -6,6 +6,7 @@ import Categories from './categories/components/categories';
 import Related from './home/related';
 import ModalContainer from './widgets/container/modal';
 import Modal from './widgets/components/modal';
+import HandleError from './error/containers/handle-error';
 
 class App extends Component {
   state = {
@@ -23,23 +24,25 @@ class App extends Component {
   }
   render() {
     return (
-      <HomeLayout>
-        <Related/>
-        <Categories 
-          categories={data.categories} 
-          handleOpenModal={this.handleOpenModal}
-        /> 
-        {
-          this.state.modalVisible &&
-          <ModalContainer>       
-            <Modal
-              handleClick={this.handleCloseModalClick}
-            >
-              <h1>esto es un portal</h1>
-            </Modal>
-          </ModalContainer>       
-        }
-      </HomeLayout>
+      <HandleError>
+        <HomeLayout>
+          <Related/>
+          <Categories 
+            categories={data.categories} 
+            handleOpenModal={this.handleOpenModal}
+          /> 
+          {
+            this.state.modalVisible &&
+            <ModalContainer>       
+              <Modal
+                handleClick={this.handleCloseModalClick}
+              >
+                <h1>esto es un portal</h1>
+              </Modal>
+            </ModalContainer>       
+          }
+        </HomeLayout>
+      </HandleError>
     );
   } 
 }

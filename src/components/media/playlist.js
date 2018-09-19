@@ -6,8 +6,6 @@ import './playlist.css';
 
 function Playlist(props) {
     
-    //console.log("playlist component " + JSON.stringify(props));
-    //const playlist = props.data.categories[0].playlist;
     return (
         <div className="Playlist">
             <Play
