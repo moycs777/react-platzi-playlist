@@ -13,6 +13,12 @@ class VideoPlayerContainer extends React.Component {
         this.setState({
             pause: !this.state.pause
         })
+        console.log("el estado de pause es: " + this.state.pause);
+    }
+    componentDidMount(){
+        this.setState({
+            pause: (!this.props.autoplay)
+        })
     }
     render(){
         return(
@@ -26,7 +32,8 @@ class VideoPlayerContainer extends React.Component {
                 />
                 <Video
                     controls={true}
-                    autoplay={false}
+                    autoplay={this.props.autoplay}
+                    pause={this.state.pause}
                     src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
                 />
             </VideoPlayerLayout>

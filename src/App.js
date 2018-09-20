@@ -28,7 +28,9 @@ class App extends Component {
       <HandleError>
         <HomeLayout>
           <Related/>
-          <VideoPlayerContainer/>
+          <VideoPlayerContainer
+            autoplay
+          />
           <Categories 
             categories={data.categories} 
             handleOpenModal={this.handleOpenModal}

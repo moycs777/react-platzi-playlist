@@ -11,7 +11,7 @@ class SearchContainer extends Component {
 
     }
     setInputRef = element => {
-        console.log("creacion y referencia del elemento");
+        //console.log("creacion y referencia del elemento");
         this.input = element;
     }
     handleInputChange = event => {
