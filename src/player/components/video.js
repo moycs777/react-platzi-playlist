@@ -22,8 +22,7 @@ class Video extends React.Component {
     render(){
         return(
             <div className="Video">
-                <video
-                    
+                <video                    
                     controls={this.props.controls}
                     autoPlay={this.props.autoplay}
                     src={this.props.src}
