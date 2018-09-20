@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { createPortal } from 'react-dom';
 
-class ModalContainer extends Component {
+class ModalContainer extends React.Component {
     render() {
         return createPortal(
             this.props.children,

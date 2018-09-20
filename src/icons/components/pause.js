@@ -1,12 +1,12 @@
 import React from 'react';
 import Icon from './icon';
 
-function Play(props) {
+function Pause(props) {
   return (
     <Icon {...props}>
-      <path d="M6 4l20 12-20 12z"></path>
+      <path d="M4 4h10v24h-10zM18 4h10v24h-10z"></path>
     </Icon>
   )
 }
 
-export default Play;
+export default Pause;
