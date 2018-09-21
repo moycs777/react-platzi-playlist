@@ -5,6 +5,7 @@ import Title from '../components/title';
 import PlayPause from '../components/play-pause';
 import Timer from '../components/timer';
 import VideoPlayerntrols from '../components/video-player-controls';
+import ProgressBar from '../components/progress-bar';
 
 class VideoPlayerContainer extends React.Component {
     state = {
@@ -49,6 +50,10 @@ class VideoPlayerContainer extends React.Component {
                     <Timer
                         duration={this.state.duration}
                         currentTime={this.state.currentTime}
+                    />
+                    <ProgressBar
+                        value={this.state.currentTime}
+                        duration={this.state.duration}
                     />
                 </VideoPlayerntrols>
                 <Video

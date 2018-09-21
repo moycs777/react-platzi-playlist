@@ -16,7 +16,7 @@ function Timer (props) {
             <p>
                 <span>
                     {formattedTime(props.currentTime)} / 
-                    {props.duration} 
+                    {formattedTime(props.duration)} 
                 </span>
             </p>
         </div>
