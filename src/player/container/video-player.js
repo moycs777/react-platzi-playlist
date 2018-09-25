@@ -7,6 +7,7 @@ import Timer from '../components/timer';
 import VideoPlayerntrols from '../components/video-player-controls';
 import ProgressBar from '../components/progress-bar';
 import Spinner from '../components/spinner';
+import Volume from '../components/volume';
 
 class VideoPlayerContainer extends React.Component {
     state = {
@@ -51,6 +52,11 @@ class VideoPlayerContainer extends React.Component {
             loading: false,
         })
     }
+    handleVolumeChange = event => {
+        console.log("volume change");
+        this.video.volume = event.target.value;
+    }
+    
     render(){
         return(
             <VideoPlayerLayout>
@@ -70,6 +76,9 @@ class VideoPlayerContainer extends React.Component {
                         value={this.state.currentTime}
                         duration={this.state.duration}
                         handleProgressChange={this.handleProgressChange}
+                    />
+                    <Volume
+                        handleVolumeChange={this.handleVolumeChange}
                     />
                 </VideoPlayerntrols>
                 <Spinner
