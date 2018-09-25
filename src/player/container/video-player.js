@@ -8,6 +8,7 @@ import VideoPlayerntrols from '../components/video-player-controls';
 import ProgressBar from '../components/progress-bar';
 import Spinner from '../components/spinner';
 import Volume from '../components/volume';
+import FullScreen from '../components/FullScreen';
 
 class VideoPlayerContainer extends React.Component {
     state = {
@@ -56,10 +57,22 @@ class VideoPlayerContainer extends React.Component {
         console.log("volume change");
         this.video.volume = event.target.value;
     }
-    
+    toggleFullScreen = event => {
+        console.log("toggle full screen");
+        if (!document.webkitIsFullScreen) {
+            this.player.webkitRequestFullScreen();
+        } else {
+            document.webkitExitFullscreen();
+        }
+    }
+    setRef = element => {
+        this.player = element;
+    }
     render(){
         return(
-            <VideoPlayerLayout>
+            <VideoPlayerLayout
+                setRef={this.setRef}
+            >
                 <Title 
                     title="titulo del video"
                 />
@@ -79,6 +92,10 @@ class VideoPlayerContainer extends React.Component {
                     />
                     <Volume
                         handleVolumeChange={this.handleVolumeChange}
+                    />
+                    <FullScreen
+                        toggleFullScreen={this.toggleFullScreen}
+
                     />
                 </VideoPlayerntrols>
                 <Spinner
