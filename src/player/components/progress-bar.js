@@ -1,15 +1,19 @@
 import React from 'react';
 import './progress-bar.css';
 
-const ProgressBar = (props) => (
-    <div className="ProgressBar">
-        <input
-            type="range"
-            min={0}
-            value={props.value}
-            max={props.duration}
-        />
-    </div>
-)
+function ProgressBar(props) {
+    return (
+        <div className="ProgressBar">
+            <input
+                type="range"
+                min={0}
+                max={props.duration}
+                value={props.value}
+                onChange={props.handleProgressChange}
+            />
+        </div>
+    )
+}
 
-export default ProgressBar;
+
+export default ProgressBar

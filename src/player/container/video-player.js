@@ -6,12 +6,14 @@ import PlayPause from '../components/play-pause';
 import Timer from '../components/timer';
 import VideoPlayerntrols from '../components/video-player-controls';
 import ProgressBar from '../components/progress-bar';
+import Spinner from '../components/spinner';
 
 class VideoPlayerContainer extends React.Component {
     state = {
         pause: true,
         duration:0,
         currentTime:0,
+        loading:false,
     }
     toggleClick = (event) => {
         console.log("has clickeado un boton");
@@ -36,6 +38,19 @@ class VideoPlayerContainer extends React.Component {
             currentTime: this.video.currentTime,
         })
     }
+    handleProgressChange = event => {
+        this.video.currentTime = event.target.value;
+    }
+    handleSeeking = event => {
+        this.setState({
+            loading:true,
+        })
+    }
+    handleSeeked = event => {
+        this.setState({
+            loading: false,
+        })
+    }
     render(){
         return(
             <VideoPlayerLayout>
@@ -54,14 +69,20 @@ class VideoPlayerContainer extends React.Component {
                     <ProgressBar
                         value={this.state.currentTime}
                         duration={this.state.duration}
+                        handleProgressChange={this.handleProgressChange}
                     />
                 </VideoPlayerntrols>
+                <Spinner
+                    active={this.state.loading}
+                />
                 <Video
-                    controls={true}
+                    controls={false}
                     autoplay={this.props.autoplay}
                     pause={this.state.pause}
                     handleLoadedMetadata={this.handleLoadedMetadata}
                     handleTimeUpdate={this.handleTimeUpdate}
+                    handleSeeking={this.handleSeeking}
+                    handleSeeked={this.handleSeeked}
                     src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
                 />
             </VideoPlayerLayout>
