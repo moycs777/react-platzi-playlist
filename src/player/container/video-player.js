@@ -59,10 +59,29 @@ class VideoPlayerContainer extends React.Component {
     }
     toggleFullScreen = event => {
         console.log("toggle full screen");
-        if (!document.webkitIsFullScreen) {
+        /* if (!document.webkitIsFullScreen || ! document.mozRequestFullScreen) {
             this.player.webkitRequestFullScreen();
         } else {
             document.webkitExitFullscreen();
+        } */
+        if (this.player.requestFullscreen) {
+            this.player.requestFullscreen();
+        } else if (this.player.mozRequestFullScreen) { /* Firefox */
+            this.player.mozRequestFullScreen();
+        } else if (this.player.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            this.player.webkitRequestFullscreen();
+        } else if (this.player.msRequestFullscreen) { /* IE/Edge */
+            this.player.msRequestFullscreen();
+        }
+
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { /* Firefox */
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE/Edge */
+            document.msExitFullscreen();
         }
     }
     setRef = element => {
