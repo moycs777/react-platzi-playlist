@@ -13,9 +13,11 @@ class App extends Component {
   state = {
     modalVisible:false,
   }
-  handleOpenModal = () => {
+  handleOpenModal = (media) => {
+    console.log("abriendo modal dmedia: " + JSON.stringify(media.src));
     this.setState({
-      modalVisible:true
+      modalVisible:true,
+      media
     })
   }
   handleCloseModalClick = (event)=>{
@@ -28,9 +30,6 @@ class App extends Component {
       <HandleError>
         <HomeLayout>
           <Related/>
-          <VideoPlayerContainer
-            autoplay
-          />
           <Categories 
             categories={data.categories} 
             handleOpenModal={this.handleOpenModal}
@@ -41,7 +40,11 @@ class App extends Component {
               <Modal
                 handleClick={this.handleCloseModalClick}
               >
-                <h1>esto es un portal</h1>
+                <VideoPlayerContainer
+                  autoplay
+                  src={this.state.media.src}
+                  title={this.state.media.title}
+                />
               </Modal>
             </ModalContainer>       
           }

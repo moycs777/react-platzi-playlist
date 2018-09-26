@@ -58,12 +58,6 @@ class VideoPlayerContainer extends React.Component {
         this.video.volume = event.target.value;
     }
     toggleFullScreen = event => {
-        console.log("toggle full screen");
-        /* if (!document.webkitIsFullScreen || ! document.mozRequestFullScreen) {
-            this.player.webkitRequestFullScreen();
-        } else {
-            document.webkitExitFullscreen();
-        } */
         if (this.player.requestFullscreen) {
             this.player.requestFullscreen();
         } else if (this.player.mozRequestFullScreen) { /* Firefox */
@@ -93,7 +87,7 @@ class VideoPlayerContainer extends React.Component {
                 setRef={this.setRef}
             >
                 <Title 
-                    title="titulo del video"
+                    title={this.props.title}
                 />
                 <VideoPlayerntrols>
                     <PlayPause
@@ -128,7 +122,7 @@ class VideoPlayerContainer extends React.Component {
                     handleTimeUpdate={this.handleTimeUpdate}
                     handleSeeking={this.handleSeeking}
                     handleSeeked={this.handleSeeked}
-                    src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+                    src={this.props.src}
                 />
             </VideoPlayerLayout>
         )
